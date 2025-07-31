@@ -9,10 +9,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
     @Value("${custom.site.name}")
     private String siteName;
+    @Value("${custom.secret.key}")
+    private String secreyKey;
 
     @GetMapping("/")
     @ResponseBody
     public String showMain() {
-        return "Hello, World!" + siteName;
+        return "Hello, World!, on " + siteName;
+    }
+
+    @GetMapping("/secretKey")
+    @ResponseBody
+    public String showSecretKey() {
+        return "secretKey:  " + secreyKey;
     }
 }
