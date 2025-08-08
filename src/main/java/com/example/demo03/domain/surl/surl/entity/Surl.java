@@ -1,4 +1,4 @@
-package com.example.demo03;
+package com.example.demo03.domain.surl.surl.entity;
 
 import lombok.AccessLevel;
 import lombok.Builder;

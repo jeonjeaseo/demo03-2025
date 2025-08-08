@@ -1,5 +1,6 @@
-package com.example.demo03;
+package com.example.demo03.domain.surl.surl.controller;
 
+import com.example.demo03.domain.surl.surl.entity.Surl;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
