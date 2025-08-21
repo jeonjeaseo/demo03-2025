@@ -2,6 +2,7 @@ package com.example.demo03.domain.article.article.service;
 
 import com.example.demo03.domain.article.article.entity.Article;
 import com.example.demo03.domain.article.article.repository.ArticleRepository;
+import com.example.demo03.global.rsData.RsData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +18,16 @@ public class ArticleService {
         return articleRepository.count();
     }
 
-    public Article write(String title, String body) {
+    public RsData<Article> write(String title, String body) {
         Article article = Article
                 .builder()
                 .title(title)
                 .body(body)
                 .build();
 
-        return articleRepository.save(article);
+        articleRepository.save(article);
+
+        return RsData.of("%d번 게시물이 작성되었습니다.".formatted(article.getId()), article);
 
     }
 

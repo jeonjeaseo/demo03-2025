@@ -1,4 +1,4 @@
-package com.example.demo03.domain.article.article.entity;
+package com.example.demo03.domain.member.member.entitiy;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,15 +17,16 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Article {
+public class Member {
     @Id // DB에서 PrimaryKey로 설정
     @GeneratedValue(strategy = IDENTITY) // Auto_increment 설정
     private Long id; // Long은 null이 들어갈 수 있음, long은 not null
     @CreatedDate
-    private LocalDateTime createdDate;
+    private LocalDateTime createDate;
     @LastModifiedDate
     private LocalDateTime modifyDate;
-    private String title;
-    @Column(columnDefinition = "TEXT")
-    private String body;
+    @Column(unique = true)
+    private String username;
+    private String password;
+    private String nickname;
 }
